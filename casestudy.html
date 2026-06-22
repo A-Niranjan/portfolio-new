@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niranjan</title>
+<meta name="description" content="Case study: Reimagining the Checkout Experience">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="public/assets/icons/favicon/favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #f7f7f4;
+    --footer-bg: #f8f7f4;
+    --ink: #101010;
+    --ink-soft: #7e7e7e;
+    --white: #ffffff;
+    --border: #edebeb;
+    --max: 1320px;
+    --content-max: 1128px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Work Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ display:block; max-width:100%; }
+
+  a{ color: inherit; text-decoration: none; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 80px 16px 64px;
+    overflow: hidden;
+  }
+  .hero__bg{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero__bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 85% 32%;
+  }
+  .hero__overlay{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(rgba(0,0,0,0) 42%, rgba(0,0,0,0.7) 100%);
+  }
+  .hero__content{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--max);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 10px;
+    padding-left: 60px;
+  }
+  .hero h1{
+    margin: 0;
+    width: 100%;
+    color: #fff;
+    font-family: "Host Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .hero-meta{
+    width: 100%;
+    display: flex;
+    gap: 52px;
+    flex-wrap: wrap;
+  }
+  .hero-meta__col{
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-meta__row{
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-meta label{
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .hero-meta p{
+    margin: 0;
+    color: #fff;
+    line-height: 1.5;
+  }
+  .hero-meta strong{ font-weight: 600; }
+
+  /* ---------- LAYOUT ---------- */
+  .page{
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+  }
+  .sidebar{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 120px;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    padding-left: 64px;
+  }
+  .sidebar nav{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sidebar a{
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    opacity: 0.45;
+    transition: opacity .3s ease, transform .3s ease;
+    transform-origin: left center;
+  }
+  .sidebar a:hover{ opacity: 0.85; }
+  .sidebar a.active{
+    opacity: 1;
+    font-weight: 500;
+    transform: scale(1.06);
+  }
+
+  .casestudy{ flex: 1; min-width: 0; }
+
+  section{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    scroll-margin-top: 40px;
+  }
+  section .frame{
+    width: 100%;
+    max-width: var(--content-max);
+  }
+  section img{ width: 100%; height: auto; }
+  .rounded-b{ border-radius: 0 0 24px 24px; }
+  .rounded-l{ border-radius: 24px 0 0 24px; }
+
+  .research-scroll{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 431px;
+    padding: 20px;
+    overflow-x: auto;
+  }
+  .research-scroll > div{
+    flex: 0 0 auto;
+    width: 67%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .research-scroll > div:nth-child(1){ background:#f4f0ea; }
+  .research-scroll > div:nth-child(2){ background:#f4efe9; }
+  .research-scroll > div:nth-child(3){ background:#f3efe9; }
+  .research-scroll img{ width: 100%; height: auto; }
+
+  @media (max-width: 809px){
+    .research-scroll{ flex-direction: column; height: auto; padding: 12px 8px; }
+    .research-scroll > div{ width: 100%; height: auto; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer{
+    background: var(--footer-bg);
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-inner{
+    max-width: var(--max);
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 24px 40px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-socials{
+    display: flex;
+    gap: 6px;
+  }
+  .footer-socials a{
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+  }
+  .footer-socials img{ width: 100%; height: 100%; }
+  .footer-links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .footer-links a{
+    font-family: "Playfair Display", serif;
+    font-size: 14px;
+    padding: 6px 8px 0;
+  }
+  .footer-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .footer-tag{
+    color: var(--ink-soft);
+    font-family: "Playfair Display", serif;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  @media (max-width: 809px){
+    .footer-inner{ flex-direction: column; align-items: flex-start; }
+    .footer-right{ align-items: center; text-align: center; }
+  }
+
+  /* ---------- NAVBAR ---------- */
+  .navbar{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 40px);
+    max-width: 700px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    z-index: 1000;
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    background: transparent;
+    border: 1px solid transparent;
+  }
+  .navbar.scrolled {
+    background-color: rgb(252, 250, 250);
+    border-color: rgb(227, 227, 227);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 0.602187px 0.602187px -1.25px, rgba(0, 0, 0, 0.06) 0px 2.28853px 2.28853px -2.5px, rgba(0, 0, 0, 0.03) 0px 10px 10px -3.75px;
+  }
+  .nav-links-group{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  .nav-link{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    height: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4px;
+    transition: color 0.3s ease;
+  }
+  .navbar.scrolled .nav-link{
+    color: rgb(16, 29, 49);
+  }
+  .nav-link-inner{
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .nav-link:hover .nav-link-inner{
+    transform: translateY(-24px);
+  }
+  .nav-link span{
+    line-height: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 809px){
+    .sidebar{ display: none; }
+  }
+
+  /* sidebar only desktop */
+  @media (max-width: 1023px){
+    .sidebar{ display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-links-group">
+    <a href="index.html" class="nav-link" style="margin-right: 300px;">
+      <div class="nav-link-inner">
+        <span>← Go Back</span>
+        <span>← Go Back</span>
+      </div>
+    </a>
+    <a href="index.html#work" class="nav-link">
+      <div class="nav-link-inner">
+        <span>Work</span>
+        <span>Work</span>
+      </div>
+    </a>
+    <a href="https://drive.google.com/file/d/1WP9VVw8So7J07QmPfSg9Vr8Y5hhZW2Gv/view?usp=sharing" target="_blank" class="nav-link">
+      <div class="nav-link-inner">
+        <span>✧ Resume</span>
+        <span>✧ Resume</span>
+      </div>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="hero__bg">
+    <img src="public/assets/images/casestudy/1.png" alt="">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <h1>Edit Videos<br>By Simply Typing</h1>
+    <div class="hero-meta">
+      <div class="hero-meta__col">
+        <label>Role</label>
+        <p>Co-Founder</p>
+      </div>
+      <div class="hero-meta__row" style="flex:1; gap:52px;">
+        <div class="hero-meta__col" style="margin-left: 40px;">
+          <label>Team</label>
+          <p>Kishore (Co-Founder)</p>
+        </div>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <!-- SIDEBAR NAV -->
+  <aside class="sidebar">
+    <nav id="section-nav">
+      <a href="#problem" data-section="problem">Problems</a>
+      <a href="#research" data-section="research">Research</a>
+      <a href="#insight" data-section="insight">Insights</a>
+      <a href="#solution" data-section="solution">Solution</a>
+      <a href="#design" data-section="design">Design</a>
+      <a href="#reflection" data-section="reflection">Reflections</a>
+    </nav>
+  </aside>
+
+  <!-- CASE STUDY CONTENT -->
+  <main class="casestudy">
+
+    <section id="overview">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/NEo4tVKEZ12UzkCXCOSejMOUqnc.jpg?width=5120&height=1456" alt="Overview">
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/A4NXU4JODCoDCw2ZNdsxh0owjlI.jpg?width=5120&height=3468" alt="Problem">
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/lyXNpCQlZ4ffuZJka0CRFPRQuU.jpg?width=5120&height=820" alt="Research intro">
+        <div class="research-scroll">
+          <div><img loading="lazy" src="https://framerusercontent.com/images/4CtFw6CCG0Zrtz5s7s0VtT5aCc.jpg?width=5120&height=2980" alt="Research artifact 1"></div>
+          <div><img loading="lazy" src="https://framerusercontent.com/images/DkefSNIGap9UHqaOZmUvTXiM.jpg?width=5120&height=2864" alt="Research artifact 2"></div>
+          <div><img loading="lazy" src="https://framerusercontent.com/images/hC3VZxuj7UD39dsnGqrFkjJMuU.jpg?width=5120&height=1938" alt="Research artifact 3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="insight">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/TP4ZAlmgRWarwff5C8o7FV8Xvvo.jpg?width=5120&height=4056" alt="Insights">
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/tuACG2C76lUlNSSFsTXJyUn8w.jpg?width=5120&height=4124" alt="Solutions">
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/gKMlF4AnBob6HDCTYwRpPIJwIcQ.jpg?width=5120&height=2388" alt="Flow">
+      </div>
+    </section>
+
+    <section id="design">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/UMIKQ9R8t9G6UCqIe9JK40J5J68.jpg?width=5120&height=11424" alt="Design">
+      </div>
+    </section>
+
+    <section id="impact-1">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/DX6M9lr8UNesyGPX6VzPi8wpA0.jpg?width=5120&height=2604" alt="Iterations">
+      </div>
+    </section>
+
+    <section id="impact-2">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/GzKVGcm5HqoKJyfIAj7y5RaxBOg.jpg?width=5120&height=3052" alt="Tradeoffs">
+      </div>
+    </section>
+
+    <section id="reflection">
+      <div class="frame">
+        <img loading="lazy" src="https://framerusercontent.com/images/u6TyrvZUoDSfsfCiUhlJSPs5qsw.jpg?width=5120&height=1640" alt="Reflections">
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-socials">
+      <a href="mailto:singhtanya20003@gmail.com?subject=Work%20Opportunity" target="_blank" rel="noopener" aria-label="Email">
+        <img src="https://framerusercontent.com/images/XbIeZJi5CO1p6mpJPpaR8ylKOU.svg" alt="Email">
+      </a>
+      <a href="https://www.behance.net/tanyasingh18" target="_blank" rel="noopener" aria-label="Behance">
+        <img src="https://framerusercontent.com/images/TazDkNPhaxLHkmxOqObsmwtZi8.svg" alt="Behance">
+      </a>
+      <a href="https://www.linkedin.com/in/tanyasingh20003/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="https://framerusercontent.com/images/FRI0z8WljXBnvEGx5xS5xIxd1Y.svg" alt="LinkedIn">
+      </a>
+    </div>
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../#worksection">Work</a>
+      <a href="../about">About</a>
+      <a href="#">Resume</a>
+    </div>
+    <div class="footer-right">
+      <p class="footer-tag">After delaying this for weeks, I present to you: a footer.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-spy for sidebar nav
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('#section-nav a'));
+    var sections = links
+      .map(function(l){ return document.getElementById(l.dataset.section); })
+      .filter(Boolean);
+
+    function onScroll(){
+      var scrollPos = window.scrollY + window.innerHeight / 3;
+      var current = sections[0];
+      sections.forEach(function(sec){
+        if (sec.offsetTop <= scrollPos) current = sec;
+      });
+      links.forEach(function(l){
+        l.classList.toggle('active', l.dataset.section === current.id);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Navbar scroll background toggle
+  (function(){
+    var navbar = document.querySelector('.navbar');
+    var hero = document.querySelector('.hero');
+    function updateNavbar(){
+      var heroBottom = hero.offsetTop + hero.offsetHeight;
+      if (window.scrollY > heroBottom - 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+  })();
+</script>
+
+</body>
+</html>
