@@ -1,39 +1,43 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Niranjan</title>
-<meta name="description" content="Case study: Reimagining the Checkout Experience">
+<meta name="description" content="Case study: InstaCut — Edit Videos By Simply Typing">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" href="public/assets/icons/favicon/favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --bg: #f7f7f4;
+    --bg: #fafafa;
     --footer-bg: #f8f7f4;
     --ink: #101010;
     --ink-soft: #7e7e7e;
     --white: #ffffff;
     --border: #edebeb;
     --max: 1320px;
-    --content-max: 1128px;
+    --black: #000000;
+    --mid: #888888;
+    --light: #e8e8e8;
+    --lighter: #f5f5f5;
   }
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+  html{ scroll-behavior: smooth; font-size: 16px; }
   body{
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font-family: "Work Sans", sans-serif;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
   img{ display:block; max-width:100%; }
-
   a{ color: inherit; text-decoration: none; }
 
   /* ---------- HERO ---------- */
@@ -74,7 +78,6 @@
     align-items: center;
     gap: 40px;
     padding-bottom: 10px;
-    padding-left: 60px;
   }
   .hero h1{
     margin: 0;
@@ -115,7 +118,336 @@
   }
   .hero-meta strong{ font-weight: 600; }
 
-  /* ---------- LAYOUT ---------- */
+  /* ---------- CASE STUDY CONTENT ---------- */
+  .container{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .container section{
+    padding: 80px 0;
+    border-top: 1px solid var(--light);
+    display: block;
+  }
+  .container section:first-of-type{ border-top: none; }
+
+  .eyebrow{
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .container h2{
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .container h3{
+    font-family: "DM Serif Display", serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    margin-top: 48px;
+  }
+  .container h3:first-of-type{ margin-top: 0; }
+
+  .container p{
+    font-size: 15px;
+    color: #1a1a1a;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .container p:last-child{ margin-bottom: 0; }
+
+  /* Problem list */
+  .friction-list{
+    list-style: none;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .friction-list li{
+    font-size: 15px;
+    color: #1a1a1a;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--lighter);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    line-height: 1.6;
+  }
+  .friction-list li::before{
+    content: "—";
+    color: var(--mid);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Insights */
+  .insights{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 28px;
+  }
+  .insight{
+    padding: 32px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .insight:last-child{ border-bottom: none; }
+  .insight-num{
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .insight-title{
+    font-family: "DM Serif Display", serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .insight p{
+    font-size: 14px;
+    color: #444;
+  }
+
+  /* HMW callout */
+  .hmw{
+    background: var(--black);
+    color: var(--white);
+    padding: 48px 52px;
+    margin: 48px 0 0;
+  }
+  .hmw-label{
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .container .hmw-text{
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--white);
+    font-style: italic;
+  }
+
+  /* Prompts */
+  .prompts{
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .prompt{
+    background: var(--lighter);
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #1a1a1a;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* Flow */
+  .flow{
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+  .flow-step{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--black);
+    white-space: nowrap;
+  }
+  .flow-arrow{
+    font-size: 12px;
+    color: var(--mid);
+    margin: 0 14px;
+  }
+
+  /* Features grid */
+  .features-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--light);
+    border: 1px solid var(--light);
+    margin-top: 28px;
+  }
+  .feature-cell{
+    background: var(--white);
+    padding: 28px 28px 32px;
+  }
+  .feature-name{
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .feature-desc{
+    font-family: "DM Serif Display", serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--black);
+  }
+
+  /* Panels */
+  .panels{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--light);
+    margin-top: 28px;
+  }
+  .panel-item{
+    padding: 28px 24px;
+    border-right: 1px solid var(--light);
+  }
+  .panel-item:last-child{ border-right: none; }
+  .panel-name{
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .panel-desc{
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Decisions */
+  .decisions{
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .decision{
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--lighter);
+    align-items: start;
+  }
+  .decision:last-child{ border-bottom: none; }
+  .decision-label{
+    font-family: "DM Serif Display", serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.3;
+    padding-top: 2px;
+  }
+  .decision-desc{
+    font-size: 14px;
+    color: #444;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* Learnings */
+  .learnings{
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--light);
+  }
+  .learning{
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--light);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .learning:last-child{ border-bottom: none; }
+  .learning-dot{
+    width: 6px;
+    height: 6px;
+    background: var(--black);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .learning-text{
+    font-size: 15px;
+    color: #1a1a1a;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Reflection */
+  .reflection-quote{
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 400;
+    line-height: 1.3;
+    font-style: italic;
+    color: var(--black);
+    border-left: 2px solid var(--black);
+    padding-left: 32px;
+    margin-top: 28px;
+  }
+
+  /* Case footer */
+  .case-footer{
+    padding: 60px 0;
+    border-top: 1px solid var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-back{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-back:hover{ opacity: 0.5; }
+  .footer-label{
+    font-size: 12px;
+    color: var(--mid);
+    font-weight: 300;
+  }
+
+  /* ---------- PAGE LAYOUT ---------- */
   .page{
     max-width: var(--max);
     margin: 0 auto;
@@ -136,7 +468,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: -120px;
+    margin-top: -260px;
   }
   .sidebar a{
     font-family: "Inter", sans-serif;
@@ -153,49 +485,42 @@
     font-weight: 500;
     transform: scale(1.06);
   }
-
   .casestudy{ flex: 1; min-width: 0; }
 
-  section{
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    scroll-margin-top: 40px;
+  /* Animations */
+  @media (prefers-reduced-motion: no-preference){
+    .container section{
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .container section.visible{
+      opacity: 1;
+      transform: none;
+    }
   }
-  section .frame{
-    width: 100%;
-    max-width: var(--content-max);
+  @media (prefers-reduced-motion: reduce){
+    .container section{
+      opacity: 1;
+      transform: none;
+    }
   }
-  section img{ width: 100%; height: auto; }
-  .rounded-b{ border-radius: 0 0 24px 24px; }
-  .rounded-l{ border-radius: 24px 0 0 24px; }
 
-  .research-scroll{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    height: 431px;
-    padding: 20px;
-    overflow-x: auto;
+  @media (max-width: 640px){
+    .container{ padding: 0 20px; }
+    .container section{ padding: 56px 0; }
+    .features-grid{ grid-template-columns: 1fr; }
+    .panels{ grid-template-columns: 1fr; }
+    .panel-item{ border-right: none; border-bottom: 1px solid var(--light); }
+    .panel-item:last-child{ border-bottom: none; }
+    .decision{ grid-template-columns: 1fr; gap: 8px; }
+    .hmw{ padding: 36px 28px; }
+    .flow{ gap: 0; }
+    .flow-arrow{ margin: 0 8px; }
   }
-  .research-scroll > div{
-    flex: 0 0 auto;
-    width: 67%;
-    height: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .research-scroll > div:nth-child(1){ background:#f4f0ea; }
-  .research-scroll > div:nth-child(2){ background:#f4efe9; }
-  .research-scroll > div:nth-child(3){ background:#f3efe9; }
-  .research-scroll img{ width: 100%; height: auto; }
 
-  @media (max-width: 809px){
-    .research-scroll{ flex-direction: column; height: auto; padding: 12px 8px; }
-    .research-scroll > div{ width: 100%; height: auto; }
+  @media (max-width: 1023px){
+    .sidebar{ display: none; }
   }
 
   /* ---------- FOOTER ---------- */
@@ -234,8 +559,12 @@
     font-size: 14px;
     padding: 6px 8px 0;
   }
+  .footer-left{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
   .footer-right{
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -249,6 +578,28 @@
     font-size: 14px;
     margin: 0;
   }
+  .footer-divider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    /* border-bottom: 1px solid var(--border); */
+    padding-bottom: 0px;
+    margin-bottom: -40px;
+    flex: 1;
+  }
+  .footer-divider img{
+    height: 28px;
+    width: auto;
+  }
+  .footer-divider img:nth-child(1){ height: 25px; transform: translateY(5.5px); }
+  .footer-divider img:nth-child(2){ height: 36px; }
+  .footer-divider img:nth-child(3){ height: 20px; transform: translateY(8px); }
+  .footer-divider img:nth-child(4){ height: 20px; transform: translateY(9px); }
+  .footer-divider img:nth-child(5){ transform: translateY(4px); }
+  .footer-divider img:nth-child(6){ transform: translateY(4.5px); }
+  .footer-divider img:nth-child(7){ transform: translateY(4.5px); }
+  .footer-divider img:nth-child(8){ transform: translateY(4.5px); }
 
   @media (max-width: 809px){
     .footer-inner{ flex-direction: column; align-items: flex-start; }
@@ -314,14 +665,6 @@
     align-items: center;
   }
 
-  @media (max-width: 809px){
-    .sidebar{ display: none; }
-  }
-
-  /* sidebar only desktop */
-  @media (max-width: 1023px){
-    .sidebar{ display: none; }
-  }
 </style>
 </head>
 <body>
@@ -329,7 +672,7 @@
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-links-group">
-    <a href="index.html" class="nav-link" style="margin-right: 300px;">
+    <a href="index.html" class="nav-link">
       <div class="nav-link-inner">
         <span>← Go Back</span>
         <span>← Go Back</span>
@@ -357,17 +700,16 @@
   </div>
   <div class="hero__overlay"></div>
   <div class="hero__content">
-    <h1>Edit Videos<br>By Simply Typing</h1>
+    <h1>InstaCut</h1>
     <div class="hero-meta">
       <div class="hero-meta__col">
         <label>Role</label>
-        <p>Co-Founder</p>
+        <p>Product Designer · Co-Founder</p>
       </div>
-      <div class="hero-meta__row" style="flex:1; gap:52px;">
-        <div class="hero-meta__col" style="margin-left: 300px;">
-          <label>Team</label>
-          <p>Kishore (Co-Founder)</p>
-        </div>
+      <div class="hero-meta__col">
+        <label>Team</label>
+        <p>Kishore (Co-Founder) · Me (Co-Founder)</p>
+      </div>
     </div>
   </div>
 </header>
@@ -376,106 +718,227 @@
   <!-- SIDEBAR NAV -->
   <aside class="sidebar">
     <nav id="section-nav">
-      <a href="#problem" data-section="problem">Problems</a>
+      <a href="#overview" data-section="overview">Overview</a>
+      <a href="#problem" data-section="problem">Problem</a>
       <a href="#research" data-section="research">Research</a>
-      <a href="#insight" data-section="insight">Insights</a>
       <a href="#solution" data-section="solution">Solution</a>
+      <a href="#features" data-section="features">Features</a>
       <a href="#design" data-section="design">Design</a>
-      <a href="#reflection" data-section="reflection">Reflections</a>
+      <a href="#challenges" data-section="challenges">Challenges</a>
+      <a href="#learnings" data-section="learnings">Learnings</a>
+      <a href="#reflection" data-section="reflection">Reflection</a>
     </nav>
   </aside>
 
-  <!-- CASE STUDY CONTENT -->
   <main class="casestudy">
+    <div class="container">
 
-    <section id="overview">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/NEo4tVKEZ12UzkCXCOSejMOUqnc.jpg?width=5120&height=1456" alt="Overview">
-      </div>
-    </section>
+      <!-- Overview -->
+      <section id="overview">
+        <span class="eyebrow">Overview</span>
+        <h2>Editing through conversation</h2>
+        <p>Video editing is still one of the biggest bottlenecks in content creation. While AI has made editing faster, most tools either automate too little or take away too much control.</p>
+        <p>InstaCut explores a different approach — letting creators edit videos simply by describing what they want. Instead of navigating complex timelines and menus, users interact with an AI assistant that understands editing intent and performs the work automatically.</p>
+      </section>
 
-    <section id="problem">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/A4NXU4JODCoDCw2ZNdsxh0owjlI.jpg?width=5120&height=3468" alt="Problem">
-      </div>
-    </section>
+      <!-- Problem -->
+      <section id="problem">
+        <span class="eyebrow">The Problem</span>
+        <h2>Powerful tools, overwhelming experience</h2>
+        <p>Modern video editors are built for professionals. Solo creators who publish regularly face a different kind of challenge — not complexity, but repetition.</p>
 
-    <section id="research">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/lyXNpCQlZ4ffuZJka0CRFPRQuU.jpg?width=5120&height=820" alt="Research intro">
-        <div class="research-scroll">
-          <div><img loading="lazy" src="https://framerusercontent.com/images/4CtFw6CCG0Zrtz5s7s0VtT5aCc.jpg?width=5120&height=2980" alt="Research artifact 1"></div>
-          <div><img loading="lazy" src="https://framerusercontent.com/images/DkefSNIGap9UHqaOZmUvTXiM.jpg?width=5120&height=2864" alt="Research artifact 2"></div>
-          <div><img loading="lazy" src="https://framerusercontent.com/images/hC3VZxuj7UD39dsnGqrFkjJMuU.jpg?width=5120&height=1938" alt="Research artifact 3"></div>
+        <ul class="friction-list">
+          <li>Time lost removing pauses, filler words, and repetitive mistakes</li>
+          <li>Complex interfaces that demand technical editing knowledge</li>
+          <li>Re-applying the same editing style across every video from scratch</li>
+          <li>Exporting the same content separately for each social platform</li>
+        </ul>
+
+        <div class="hmw">
+          <span class="hmw-label">Design Question</span>
+          <p class="hmw-text">How might we reduce editing time while keeping creators in control of the final output?</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="insight">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/TP4ZAlmgRWarwff5C8o7FV8Xvvo.jpg?width=5120&height=4056" alt="Insights">
-      </div>
-    </section>
+      <!-- Research -->
+      <section id="research">
+        <span class="eyebrow">Research</span>
+        <h2>Three things that kept coming up</h2>
+        <p>I explored existing editing workflows, AI video tools, and creator communities to understand how people currently edit content. Three patterns emerged consistently.</p>
 
-    <section id="solution">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/tuACG2C76lUlNSSFsTXJyUn8w.jpg?width=5120&height=4124" alt="Solutions">
-      </div>
-    </section>
+        <div class="insights">
+          <div class="insight">
+            <span class="insight-num">Finding 01</span>
+            <p class="insight-title">Editing is repetitive work, not creative work</p>
+            <p>Most editing time isn't spent making creative decisions. It's spent trimming silences, adding captions, creating jump cuts, and resizing for each platform — over and over.</p>
+          </div>
+          <div class="insight">
+            <span class="insight-num">Finding 02</span>
+            <p class="insight-title">Interfaces create friction before any edit is made</p>
+            <p>Traditional editing software exposes every professional control upfront. For everyday creators, that learning curve is a wall, not a ramp.</p>
+          </div>
+          <div class="insight">
+            <span class="insight-num">Finding 03</span>
+            <p class="insight-title">Creators have a style — AI tools ignore it</p>
+            <p>Creators develop consistent pacing, transitions, and caption styles over time. Existing AI tools generate generic edits instead of adapting to what a person has already built.</p>
+          </div>
+        </div>
+      </section>
 
-    <section id="impact">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/gKMlF4AnBob6HDCTYwRpPIJwIcQ.jpg?width=5120&height=2388" alt="Flow">
-      </div>
-    </section>
+      <!-- Solution -->
+      <section id="solution">
+        <span class="eyebrow">Solution</span>
+        <h2>Replace the workflow with a conversation</h2>
+        <p>InstaCut replaces complicated editing workflows with natural language. Users upload a video and simply describe the result they want.</p>
 
-    <section id="design">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/UMIKQ9R8t9G6UCqIe9JK40J5J68.jpg?width=5120&height=11424" alt="Design">
-      </div>
-    </section>
+        <div class="prompts">
+          <div class="prompt">"Remove all pauses and add captions."</div>
+          <div class="prompt">"Turn this into a 30-second Instagram Reel."</div>
+          <div class="prompt">"Use my usual editing style and export for YouTube Shorts."</div>
+        </div>
 
-    <section id="impact-1">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/DX6M9lr8UNesyGPX6VzPi8wpA0.jpg?width=5120&height=2604" alt="Iterations">
-      </div>
-    </section>
+        <!-- <div class="flow" style="margin-top: 48px;">
+          <span class="flow-step">Upload</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Describe</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Generate</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Review</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Export</span>
+        </div> -->
+      </section>
 
-    <section id="impact-2">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/GzKVGcm5HqoKJyfIAj7y5RaxBOg.jpg?width=5120&height=3052" alt="Tradeoffs">
-      </div>
-    </section>
+      <!-- Features -->
+      <section id="features">
+        <span class="eyebrow">Core Features</span>
+        <h2>What the product actually does</h2>
 
-    <section id="reflection">
-      <div class="frame">
-        <img loading="lazy" src="https://framerusercontent.com/images/u6TyrvZUoDSfsfCiUhlJSPs5qsw.jpg?width=5120&height=1640" alt="Reflections">
-      </div>
-    </section>
+        <div class="features-grid">
+          <div class="feature-cell">
+            <span class="feature-name">AI Editing Assistant</span>
+            <p class="feature-desc">Edit videos using natural language. No menus, no timelines to learn.</p>
+          </div>
+          <div class="feature-cell">
+            <span class="feature-name">Smart Automation</span>
+            <p class="feature-desc">Silence removal, jump cuts, captions, zooms, B-roll, and multi-platform exports.</p>
+          </div>
+          <div class="feature-cell">
+            <span class="feature-name">Style Memory</span>
+            <p class="feature-desc">Remembers pacing, transitions, and caption preferences. Gets better over time.</p>
+          </div>
+          <div class="feature-cell">
+            <span class="feature-name">Everywhere Export</span>
+            <p class="feature-desc">One video, every format. Presets for YouTube, Reels, Shorts, and TikTok.</p>
+          </div>
+        </div>
+      </section>
 
+      <!-- Design Decisions -->
+      <section id="design">
+        <span class="eyebrow">Design Decisions</span>
+        <h2>The thinking behind the choices</h2>
+
+        <div class="decisions">
+          <div class="decision">
+            <p class="decision-label">Conversation over complexity</p>
+            <p class="decision-desc">Instead of forcing users to learn editing terminology, the interface understands everyday language. Anyone who can describe what they want can edit a video.</p>
+          </div>
+          <div class="decision">
+            <p class="decision-label">AI with human control</p>
+            <p class="decision-desc">Automation speeds up the work, but creators always review, refine, and approve the final result. The AI never makes irreversible changes without confirmation.</p>
+          </div>
+          <div class="decision">
+            <p class="decision-label">Minimal visual hierarchy</p>
+            <p class="decision-desc">A distraction-free dark interface keeps the user's attention on the content — not on the software. The tool disappears when it's working well.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Challenges -->
+      <section id="challenges">
+        <span class="eyebrow">Challenges</span>
+        <h2>Balancing automation with trust</h2>
+        <p>The biggest design challenge wasn't making the AI capable — it was making it trustworthy. Users needed confidence that an automated system wouldn't make changes they couldn't undo or understand.</p>
+        <p>This shaped the entire workflow: previews before commits, editable results at every step, and conversational iteration rather than one-click automation. The AI becomes a collaborator, not a black box.</p>
+      </section>
+
+      <!-- Learnings -->
+      <section id="learnings">
+        <span class="eyebrow">What I Learned</span>
+        <h2>Designing for AI taught me more than AI</h2>
+
+        <div class="learnings">
+          <div class="learning">
+            <div class="learning-dot"></div>
+            <p class="learning-text">Automation alone isn't enough — great AI experiences explain their actions and preserve user control.</p>
+          </div>
+          <div class="learning">
+            <div class="learning-dot"></div>
+            <p class="learning-text">Reducing complexity doesn't mean hiding functionality. It means surfacing the right thing at the right moment.</p>
+          </div>
+          <div class="learning">
+            <div class="learning-dot"></div>
+            <p class="learning-text">When conversation becomes the primary interface, the rules of interaction design shift entirely — words carry the weight that UI components used to.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reflection -->
+      <section id="reflection">
+        <span class="eyebrow">Reflection</span>
+        <h2>What this pointed toward</h2>
+        <p>InstaCut is a bet that the future of creative tools isn't more buttons — it's better dialogue. The shift from UI-first to conversation-first changes not just the interface, but the relationship between a creator and their tools.</p>
+
+        <blockquote class="reflection-quote">
+          Rather than replacing creativity, the product removes repetitive work so creators can spend more time telling better stories.
+        </blockquote>
+      </section>
+
+      <!-- Footer -->
+      <div class="case-footer">
+        <a href="index.html" class="footer-back">← Back to Work</a>
+        <span class="footer-label">InstaCut · 2025</span>
+      </div>
+
+    </div>
   </main>
 </div>
+
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-socials">
-      <a href="mailto:singhtanya20003@gmail.com?subject=Work%20Opportunity" target="_blank" rel="noopener" aria-label="Email">
-        <img src="https://framerusercontent.com/images/XbIeZJi5CO1p6mpJPpaR8ylKOU.svg" alt="Email">
-      </a>
-      <a href="https://www.behance.net/tanyasingh18" target="_blank" rel="noopener" aria-label="Behance">
-        <img src="https://framerusercontent.com/images/TazDkNPhaxLHkmxOqObsmwtZi8.svg" alt="Behance">
-      </a>
-      <a href="https://www.linkedin.com/in/tanyasingh20003/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <img src="https://framerusercontent.com/images/FRI0z8WljXBnvEGx5xS5xIxd1Y.svg" alt="LinkedIn">
-      </a>
+    <div class="footer-left">
+      <div class="footer-socials">
+        <a href="mailto:singhtanya20003@gmail.com?subject=Work%20Opportunity" target="_blank" rel="noopener" aria-label="Email">
+          <img src="https://framerusercontent.com/images/XbIeZJi5CO1p6mpJPpaR8ylKOU.svg" alt="Email">
+        </a>
+        <a href="https://www.behance.net/tanyasingh18" target="_blank" rel="noopener" aria-label="Behance">
+          <img src="https://framerusercontent.com/images/TazDkNPhaxLHkmxOqObsmwtZi8.svg" alt="Behance">
+        </a>
+        <a href="https://www.linkedin.com/in/tanyasingh20003/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src="https://framerusercontent.com/images/FRI0z8WljXBnvEGx5xS5xIxd1Y.svg" alt="LinkedIn">
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="../#worksection">Work</a>
+        <a href="../about">About</a>
+        <a href="#">Resume</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="../">Home</a>
-      <a href="../#worksection">Work</a>
-      <a href="../about">About</a>
-      <a href="#">Resume</a>
-    </div>
+               <div class="footer-divider">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 32 31.5%22><path d=%22M 31.432 29.7 C 27.215 30.011 22.353 29.326 18.779 28.572 C 17.732 28.352 16.796 28.126 16.019 27.917 C 15.426 27.757 14.925 27.608 14.538 27.479 C 11.913 26.604 10.5 24.585 7.808 21.69 C 5.654 19.375 3.769 14.085 3.096 11.729 C 2.446 9.126 2.733 3.423 9.087 1.431 C 14.451 -0.251 17.251 5.498 18.343 10.016 C 19.797 11.308 27.82 12.918 31.432 13.412 Z%22 fill=%22rgb(189, 93, 9)%22></path><path d=%22M 18.779 28.572 C 22.353 29.326 27.215 30.011 31.432 29.7 L 31.432 13.412 C 27.82 12.918 19.797 11.308 18.343 10.016 L 18.779 12.335 C 18.195 7.87 15.44 -0.561 9.087 1.431 C 2.733 3.423 2.446 9.126 3.096 11.729 C 3.769 14.085 5.654 19.375 7.808 21.69 C 10.5 24.585 11.913 26.604 14.538 27.479 C 14.925 27.608 15.426 27.757 16.019 27.917 C 16.796 28.126 17.732 28.352 18.779 28.572 Z%22 fill=%22transparent%22 stroke-width=%220.73%22 stroke=%22rgb(0,0,0)%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 24.934 17.554 C 25.065 17.652 25.208 17.763 25.357 17.883 C 26.341 18.617 27.72 19.449 27.627 18.564 C 27.549 17.831 26.846 17.261 26.214 16.915 C 25.978 16.812 25.749 16.709 25.54 16.612 C 25.725 16.675 25.964 16.778 26.214 16.915 C 26.846 17.261 27.549 17.831 27.627 18.564 C 27.72 19.449 26.341 18.617 25.357 17.883 C 25.204 17.768 25.061 17.657 24.934 17.554 Z%22 fill=%22rgb(189, 93, 9)%22></path><path d=%22M 20.627 16.208 C 20.932 16.521 21.25 16.832 21.569 17.135 C 23.174 18.469 24.392 20.227 26.908 20.595 C 27.016 20.561 27.125 20.517 27.237 20.411 C 27.348 20.308 27.418 20.138 27.422 19.999 C 27.427 19.717 27.328 19.544 27.242 19.38 C 27.058 19.061 26.838 18.81 26.612 18.567 C 26.156 18.088 25.664 17.665 25.146 17.271 L 24.712 17.829 C 25.201 18.228 25.707 18.599 26.269 18.921 C 26.507 19.053 26.743 19.18 27.053 19.264 C 27.208 19.293 27.396 19.37 27.699 19.214 C 27.848 19.13 27.943 18.955 27.966 18.838 C 27.995 18.713 27.99 18.62 27.98 18.527 C 27.73 17.206 26.609 16.684 25.644 16.311 L 25.406 16.901 C 26.093 17.203 26.788 17.484 27.512 17.714 C 27.887 17.819 28.211 17.956 28.706 17.935 C 28.775 17.923 28.867 17.917 28.974 17.811 C 29.027 17.755 29.056 17.677 29.06 17.61 C 29.063 17.544 29.053 17.504 29.04 17.458 C 28.987 17.311 28.919 17.237 28.853 17.153 C 28.718 16.995 28.581 16.871 28.432 16.74 C 27.689 16.094 26.866 15.528 25.955 15.159 C 25.542 14.998 25.108 14.856 24.665 14.862 C 25.103 14.904 25.511 15.087 25.898 15.284 C 26.749 15.731 27.494 16.345 28.167 17.023 C 28.299 17.156 28.418 17.285 28.517 17.418 C 28.565 17.483 28.607 17.559 28.611 17.587 C 28.613 17.593 28.609 17.592 28.61 17.574 C 28.609 17.555 28.621 17.519 28.642 17.497 C 28.685 17.458 28.68 17.474 28.656 17.472 C 28.403 17.47 28.015 17.332 27.685 17.21 C 27.006 16.952 26.334 16.644 25.675 16.323 L 25.436 16.913 C 26.265 17.235 27.194 17.866 27.273 18.601 C 27.277 18.642 27.273 18.671 27.272 18.671 C 27.268 18.675 27.292 18.621 27.331 18.6 C 27.409 18.571 27.318 18.598 27.233 18.568 C 27.05 18.519 26.832 18.41 26.624 18.293 C 26.12 18.005 25.624 17.649 25.157 17.279 L 24.723 17.838 C 25.218 18.203 25.704 18.602 26.136 19.029 C 26.35 19.243 26.556 19.47 26.698 19.698 C 26.768 19.808 26.814 19.931 26.812 19.972 C 26.811 19.992 26.817 19.977 26.814 19.986 C 26.809 19.994 26.78 20.016 26.73 20.033 C 25.125 19.834 23.261 18.206 21.659 17.031 C 21.312 16.762 20.964 16.485 20.627 16.208 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 19.375 27.988 C 19.366 27.988 19.357 27.987 19.348 27.987 C 19.357 27.987 19.366 27.987 19.375 27.988 Z%22 fill=%22rgb(189, 93, 9)%22></path><path d=%22M 16.05 24.419 C 16.285 24.598 16.529 24.768 16.776 24.932 C 17.395 25.334 18.019 25.724 18.759 25.967 C 19.18 26.096 19.601 26.215 20.01 26.345 C 20.214 26.411 20.417 26.479 20.604 26.557 C 20.696 26.596 20.786 26.638 20.858 26.682 C 20.893 26.704 20.924 26.727 20.939 26.742 C 20.956 26.756 20.942 26.766 20.923 26.702 C 20.919 26.681 20.916 26.651 20.923 26.613 C 20.929 26.573 20.951 26.529 20.972 26.502 C 21.022 26.444 21.05 26.44 21.058 26.435 C 21.074 26.429 21.048 26.435 21.021 26.435 C 20.965 26.436 20.888 26.432 20.81 26.426 C 20.654 26.413 20.485 26.393 20.312 26.379 C 20.137 26.365 19.959 26.352 19.758 26.364 C 19.658 26.372 19.552 26.383 19.425 26.424 C 19.306 26.464 19.117 26.553 19.022 26.77 C 18.999 26.827 18.973 26.887 18.978 27.005 C 18.98 27.124 19.075 27.275 19.159 27.327 C 19.324 27.432 19.396 27.419 19.468 27.431 C 19.605 27.443 19.705 27.437 19.806 27.432 C 20.005 27.42 20.187 27.403 20.365 27.396 C 20.79 27.372 21.227 27.424 21.364 27.604 C 21.381 27.622 21.379 27.633 21.37 27.594 C 21.357 27.552 21.392 27.465 21.406 27.459 C 21.432 27.442 21.351 27.498 21.271 27.521 C 21.1 27.578 20.886 27.613 20.674 27.639 C 20.247 27.689 19.8 27.706 19.361 27.704 L 19.336 28.27 C 19.943 28.286 20.697 28.339 21.088 28.648 C 21.105 28.664 21.111 28.678 21.11 28.666 C 21.105 28.653 21.125 28.607 21.13 28.611 C 21.136 28.617 21.072 28.653 21.011 28.669 C 20.881 28.706 20.732 28.721 20.581 28.729 C 20.281 28.742 19.971 28.721 19.665 28.678 C 19.376 28.636 19.088 28.574 18.809 28.475 C 19.069 28.618 19.349 28.726 19.636 28.812 C 19.94 28.902 20.253 28.967 20.576 28.995 C 20.74 29.007 20.9 29.014 21.08 28.987 C 21.17 28.967 21.263 28.961 21.383 28.857 C 21.443 28.808 21.492 28.677 21.468 28.589 C 21.449 28.499 21.413 28.45 21.377 28.403 C 20.751 27.815 20.052 27.798 19.36 27.703 L 19.335 28.27 C 19.798 28.307 20.26 28.32 20.735 28.289 C 20.974 28.271 21.211 28.248 21.474 28.173 C 21.606 28.127 21.749 28.099 21.929 27.915 C 22.019 27.826 22.094 27.621 22.058 27.467 C 22.027 27.314 21.966 27.232 21.909 27.158 C 21.416 26.612 20.801 26.673 20.334 26.675 C 20.135 26.684 19.941 26.703 19.763 26.715 C 19.676 26.721 19.586 26.724 19.535 26.72 C 19.514 26.723 19.489 26.697 19.575 26.748 C 19.62 26.773 19.689 26.881 19.688 26.953 C 19.69 27.023 19.676 27.041 19.674 27.05 C 19.645 27.108 19.615 27.103 19.653 27.09 C 19.685 27.077 19.747 27.065 19.813 27.059 C 19.948 27.046 20.106 27.049 20.267 27.056 C 20.429 27.064 20.596 27.076 20.774 27.082 C 20.865 27.084 20.956 27.087 21.066 27.077 C 21.125 27.071 21.181 27.068 21.278 27.033 C 21.323 27.014 21.392 26.99 21.468 26.898 C 21.502 26.856 21.533 26.792 21.543 26.731 C 21.554 26.673 21.55 26.623 21.541 26.579 C 21.5 26.407 21.409 26.33 21.345 26.273 C 21.277 26.217 21.215 26.181 21.155 26.149 C 21.035 26.087 20.922 26.045 20.811 26.007 C 20.588 25.932 20.37 25.877 20.153 25.826 C 19.718 25.726 19.287 25.647 18.86 25.564 C 18.185 25.422 17.504 25.117 16.843 24.813 C 16.576 24.688 16.311 24.557 16.05 24.419 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 6.327 11.258 C 6.394 11.931 6.879 13.115 8.279 12.469 C 9.679 11.823 10.163 10.988 10.231 10.652 M 10.231 10.652 L 9.76 8.835 M 10.231 10.652 C 10.679 11.078 11.913 11.594 12.856 11.527 C 14.159 11.434 14.673 10.988 14.942 10.585 C 15.211 10.181 15.144 9.889 15.144 9.642%22 fill=%22transparent%22 stroke-width=%220.73%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 8.615 8.498 L 9.76 8.902 L 10.5 7.96%22 fill=%22transparent%22 stroke-width=%220.73%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 6.327 16.844 C 6.462 17.405 6.785 18.446 7 18.123 C 7.215 17.8 6.641 17.136 6.327 16.844 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 7.673 19.133 C 7.898 19.738 8.454 20.923 8.885 20.815 C 9.315 20.708 8.256 19.649 7.673 19.133 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 18.806 13.16 C 18.625 13.781 18.367 15.064 18.777 15.234 C 19.187 15.404 18.967 13.922 18.806 13.16 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 9.76 20.815 C 9.894 21.129 10.204 21.663 10.365 21.286 C 10.527 20.91 10.029 20.815 9.76 20.815 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 19.281 13.65 C 19.366 13.791 19.562 14.03 19.664 13.861 C 19.767 13.692 19.451 13.65 19.281 13.65 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 10.231 22.498 C 10.32 22.7 10.527 23.09 10.635 23.036 C 10.742 22.983 10.41 22.655 10.231 22.498 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 6.223 7.189 C 6.115 7.135 5.923 7.323 5.923 7.422 C 5.923 7.691 6.156 7.705 6.223 7.66 C 6.492 7.526 6.382 7.269 6.223 7.189 Z%22 fill=%22rgb(0,0,0)%22 stroke-width=%220.59%22 stroke=%22rgb(0,0,0)%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 13.529 6.009 C 13.425 6.045 13.488 6.509 13.694 6.449 C 14.263 6.283 13.896 5.708 13.529 6.009 Z%22 fill=%22rgb(0,0,0)%22 stroke-width=%220.59%22 stroke=%22rgb(0,0,0)%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 29.884 28.084 C 30.243 27.95 30.988 27.721 31.096 27.883 C 31.231 28.084 30.759 28.421 29.884 28.084 Z%22 fill=%22rgb(0,0,0)%22></path></svg>">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 28 37%22><path d=%22M 7.627 11.569 L 6.405 37.095 L 25.604 37.095 L 23.357 31.974 C 22.6 29.201 19.283 22.179 17.719 19.014 L 21.386 17.439 C 25.052 14.169 24.5 13.106 24.737 11.569 C 24.973 10.033 23.475 8.536 22.608 8.26 C 21.74 7.985 20.439 7.118 14.526 6.803 C 9.795 6.551 7.956 9.875 7.627 11.569 Z%22 fill=%22rgb(105,152,79)%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 14.092 2.549 L 16.734 0.697%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 8.889 2.194 C 9.756 2.299 11.656 2.627 12.318 3.1%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 9.913 4.676 C 9.152 5.497 10.02 6.947 10.601 7.637 C 10.633 7.675 10.691 7.673 10.723 7.636 C 11.536 6.709 13.256 6.627 14.135 6.712 C 14.19 6.717 14.234 6.666 14.218 6.612 C 14.085 6.177 13.755 5.373 13.264 4.912 C 12.594 4.282 10.899 3.612 9.913 4.676 Z%22 fill=%22rgb(255,255,255)%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 17.128 16.454 C 17.956 15.981 19.927 15.138 21.188 15.548 C 22.45 15.957 22.976 15.902 23.081 15.823%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 14.219 23.786 L 14.684 24.45 L 15.451 24.45 C 15.532 24.45 15.56 24.343 15.49 24.303 L 15.345 24.22 C 15.286 24.187 15.294 24.1 15.358 24.077 L 15.574 24 C 15.639 23.977 15.645 23.886 15.583 23.855 L 15.266 23.697 C 15.227 23.678 15.211 23.631 15.23 23.592 L 15.613 22.8 C 15.648 22.727 15.562 22.654 15.495 22.702 L 14.684 23.288 L 14.684 23.583 C 14.684 23.627 14.648 23.662 14.605 23.662 L 14.283 23.662 C 14.219 23.662 14.182 23.734 14.219 23.786 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 12.87 27.523 L 14.684 24.45 M 14.684 24.45 L 14.219 23.786 C 14.182 23.734 14.219 23.662 14.283 23.662 L 14.605 23.662 C 14.648 23.662 14.684 23.627 14.684 23.583 L 14.684 23.288 M 14.684 24.45 L 15.451 24.45 C 15.532 24.45 15.56 24.343 15.49 24.303 L 15.345 24.22 C 15.286 24.187 15.294 24.1 15.358 24.077 L 15.574 24 C 15.639 23.977 15.645 23.886 15.583 23.855 L 15.266 23.697 C 15.227 23.678 15.211 23.631 15.23 23.592 L 15.613 22.8 C 15.648 22.727 15.562 22.654 15.495 22.702 L 14.684 23.288 M 14.684 22.914 L 14.684 23.288%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 21.433 20.714 L 21.898 21.378 L 22.665 21.378 C 22.746 21.378 22.775 21.271 22.705 21.231 L 22.559 21.148 C 22.501 21.114 22.508 21.028 22.572 21.005 L 22.788 20.928 C 22.854 20.904 22.859 20.814 22.797 20.783 L 22.48 20.625 C 22.441 20.605 22.426 20.559 22.444 20.52 L 22.827 19.728 C 22.862 19.654 22.776 19.582 22.71 19.63 L 21.898 20.216 L 21.898 20.511 C 21.898 20.555 21.863 20.59 21.819 20.59 L 21.497 20.59 C 21.434 20.59 21.396 20.662 21.433 20.714 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 20.084 24.45 L 21.898 21.378 M 21.898 21.378 L 21.433 20.714 C 21.396 20.662 21.434 20.59 21.497 20.59 L 21.819 20.59 C 21.863 20.59 21.898 20.555 21.898 20.511 L 21.898 20.216 M 21.898 21.378 L 22.665 21.378 C 22.746 21.378 22.775 21.271 22.705 21.231 L 22.559 21.148 C 22.501 21.114 22.508 21.028 22.572 21.005 L 22.788 20.928 C 22.854 20.904 22.859 20.814 22.797 20.783 L 22.48 20.625 C 22.441 20.605 22.426 20.559 22.444 20.52 L 22.827 19.728 C 22.862 19.654 22.776 19.582 22.71 19.63 L 21.898 20.216 M 21.898 19.841 L 21.898 20.216%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 18.153 4.794 C 18.77 5.658 18.204 6.667 17.822 7.091 C 17.807 7.109 17.785 7.117 17.762 7.116 C 16.581 7.061 14.273 6.846 14.211 6.409 C 14.132 5.857 14.526 4.282 15.511 3.77 C 16.497 3.258 17.364 3.691 18.153 4.794 Z%22 fill=%22rgb(255,255,255)%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 16.3 5.267 C 16.3 5.049 16.476 4.873 16.694 4.873 C 16.912 4.873 17.088 5.049 17.088 5.267 C 17.088 5.484 16.912 5.66 16.694 5.66 C 16.476 5.66 16.3 5.484 16.3 5.267 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 11.096 5.66 C 11.096 5.443 11.273 5.267 11.49 5.267 C 11.708 5.267 11.885 5.443 11.885 5.66 C 11.885 5.878 11.708 6.054 11.49 6.054 C 11.273 6.054 11.096 5.878 11.096 5.66 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 4.118 12.121 C 4.489 11.318 6.505 11.508 7.526 11.714 C 7.562 11.721 7.588 11.752 7.588 11.789 C 7.586 14.501 7.498 19.794 7.154 19.763 C 6.81 19.731 5.945 19.31 5.547 19.098 C 5.541 19.095 5.535 19.09 5.53 19.085 C 2.031 15.741 3.646 13.144 4.118 12.121 Z%22 fill=%22rgb(105,152,79)%22></path><path d=%22M 3.33 22.481 C 3.546 20.352 5.87 19.912 7.077 19.956 C 7.12 19.958 7.153 19.994 7.151 20.037 L 6.839 28.311 L 6.37 37.123 C 6.368 37.171 6.325 37.206 6.278 37.196 C 4.782 36.883 1.984 35.503 2.108 32.289 C 2.215 29.501 4.46 28.549 6.066 28.351 C 5.734 28.289 5.306 28.139 4.789 27.838 C 3.369 27.011 3.054 25.199 3.33 22.481 Z%22 fill=%22rgb(105,152,79)%22></path><path d=%22M 6.839 28.311 C 6.628 28.429 5.924 28.5 4.789 27.838 C 3.369 27.011 3.054 25.199 3.33 22.481 C 3.546 20.352 5.87 19.912 7.077 19.956 C 7.12 19.958 7.153 19.994 7.151 20.037 Z M 6.839 28.311 C 5.314 28.271 2.234 29.012 2.108 32.289 C 1.984 35.503 4.782 36.883 6.278 37.196 C 6.325 37.206 6.368 37.171 6.37 37.123 Z M 4.118 12.121 C 4.489 11.318 6.505 11.508 7.526 11.714 C 7.562 11.721 7.588 11.752 7.588 11.789 C 7.586 14.501 7.498 19.794 7.154 19.763 C 6.81 19.731 5.945 19.31 5.547 19.098 C 5.541 19.095 5.535 19.09 5.53 19.085 C 2.031 15.741 3.646 13.144 4.118 12.121 Z%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path></svg>">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 32 16.5%22><path d=%22M 1.25 15.75 L 31.75 15.75%22 fill=%22transparent%22></path><path d=%22M 4.875 7.141 L 5.75 10.891 C 5.35 11.491 4.833 11.307 4.625 11.141 L 3.375 7.141 C 1.475 7.141 1.25 4.888 1.25 3.764 C 1.25 3.086 2.104 5.22 2.75 5.014 C 3.441 4.793 3.082 2.378 3.375 2.89 C 4.375 4.639 4.75 5.639 5.125 2.889 C 5.125 1.889 5.45 2.941 5.75 4.641 C 6.05 6.341 5.292 7.016 4.875 7.141 Z%22 fill=%22rgb(217,217,217)%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 26.5 6.889 L 26 10.264 C 26.3 11.364 27.042 10.972 27.375 10.639 L 28.25 6.889 C 30.5 6.139 29.75 2.889 28.25 2.639 C 26 2.639 25.792 5.597 26.5 6.889 Z%22 fill=%22rgb(217,217,217)%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 9.176 12.59 C 2.598 9.841 5.617 13.736 7.949 16.027 L 23.902 16.027 C 28.614 9.894 24.965 11.18 22.552 12.59 C 25.497 9.524 22.634 7.083 20.834 6.246 C 18.772 2.227 16.621 4.571 15.803 6.246 C 13.054 2.122 10.812 4.88 10.035 6.774 C 6.304 8.572 7.908 11.401 9.176 12.59 Z%22 fill=%22rgb(148,234,76)%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 12 9.875 C 13.375 9.875 15.65 10.5 16.25 10.5 C 17 10.5 19.125 9.875 20.375 9.875%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 18 6.875 C 18 6.392 18.28 6 18.625 6 C 18.97 6 19.25 6.392 19.25 6.875 C 19.25 7.358 18.97 7.75 18.625 7.75 C 18.28 7.75 18 7.358 18 6.875 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 12.5 6.875 C 12.5 6.392 12.78 6 13.125 6 C 13.47 6 13.75 6.392 13.75 6.875 C 13.75 7.358 13.47 7.75 13.125 7.75 C 12.78 7.75 12.5 7.358 12.5 6.875 Z%22 fill=%22rgb(0,0,0)%22></path></svg>">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 32 18%22><path d=%22M 8.161 15.453 C 7.911 14.662 7.661 13.028 8.661 12.828%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 20.912 13.078 C 21.287 13.537 22.012 14.853 21.912 16.453%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 24.037 11.828 C 24.62 12.453 25.687 14.103 25.287 15.703%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 11.411 13.203 C 9.811 13.203 8.393 12.564 8.286 11.953 C 7.879 9.614 8.661 7.453 13.786 6.203 C 18.911 4.953 23.411 7.578 23.786 8.328 C 24.161 9.078 24.036 10.203 24.036 11.203 C 24.036 12.003 22.87 12.703 22.286 12.953 C 19.328 13.037 13.011 13.203 11.411 13.203 Z%22 fill=%22rgb(217,0,0)%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 24.536 1.578 C 23.736 1.978 24.703 5.495 25.286 7.078 C 27.186 7.279 28.995 4.912 29.661 3.703 C 30.611 -0.001 28.554 1.264 27.238 2.507 C 27.129 2.61 26.954 2.598 26.861 2.481 C 25.649 0.965 25.492 1.101 24.536 1.578 Z%22 fill=%22rgb(217,0,0)%22></path><path d=%22M 24.037 8.578 L 25.287 7.078 M 25.287 7.078 C 24.703 5.495 23.737 1.978 24.537 1.578 C 25.492 1.101 25.649 0.965 26.861 2.481 C 26.954 2.598 27.129 2.61 27.238 2.507 C 28.554 1.264 30.611 -0.001 29.662 3.703 C 28.995 4.912 27.187 7.279 25.287 7.078 Z%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 2.287 3.578 C 1.887 4.978 4.87 7.245 6.412 8.203 C 6.787 7.704 7.786 6.953 7.661 4.078 C 7.571 1.996 6.448 2.899 5.742 3.8 C 5.637 3.934 5.43 3.937 5.324 3.804 C 3.919 2.059 2.763 1.912 2.287 3.578 Z%22 fill=%22rgb(217,0,0)%22></path><path d=%22M 8.287 9.328 L 6.412 8.203 M 6.412 8.203 C 4.87 7.245 1.887 4.978 2.287 3.578 C 2.763 1.912 3.919 2.059 5.324 3.804 C 5.43 3.937 5.637 3.934 5.742 3.8 C 6.448 2.899 7.571 1.996 7.661 4.078 C 7.786 6.953 6.787 7.704 6.412 8.203 Z%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 24.287 10.828 C 24.995 10.828 26.512 11.503 26.912 14.203%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 22.912 12.703 C 23.245 13.412 23.862 14.978 23.662 15.578%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 12.162 16.078 C 12.12 15.203 12.162 13.428 12.662 13.328%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 10.286 15.953 C 9.995 15.453 9.561 14.203 10.161 13.203%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 6.287 13.828 C 6.37 12.912 6.812 11.078 7.912 11.078%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 17.662 4.828 C 17.662 4.621 17.829 4.453 18.037 4.453 C 18.244 4.453 18.412 4.621 18.412 4.828 C 18.412 5.035 18.244 5.203 18.037 5.203 C 17.829 5.203 17.662 5.035 17.662 4.828 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 12.912 5.328 C 12.912 5.121 13.079 4.953 13.287 4.953 C 13.494 4.953 13.662 5.121 13.662 5.328 C 13.662 5.535 13.494 5.703 13.287 5.703 C 13.079 5.703 12.912 5.535 12.912 5.328 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 15.037 8.203 C 15.328 8.453 16.162 8.728 17.162 7.828%22 fill=%22transparent%22 stroke-width=%220.75%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path></svg>">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 32 29.5%22><path d=%22M 22.202 23.964 L 25.432 29.968 L 11.015 29.968 C 10.598 28.87 10.244 26.078 10.331 25.169 C 10.424 24.196 10.903 24.18 10.98 24.196 C 11.784 24.52 13.92 25.169 15.663 25.169 C 17.407 25.169 20.749 24.366 22.202 23.964 Z%22 fill=%22rgb(255,255,255)%22 stroke-width=%220.7%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 24.149 10.053 C 18.881 6.158 13.793 7.131 11.907 8.105 C 0.779 15.061 7.758 22.217 8.569 22.804 C 11.258 24.752 17.286 26.375 23.546 23.222 C 28.66 20.646 26.838 13.113 24.149 10.053 Z%22 fill=%22rgb(255,255,255)%22 stroke-width=%220.79%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 18.121 25.633 C 17.843 26.251 17.398 27.627 17.843 28.184 C 18.399 28.879 19.28 28.276 19.466 27.998 C 19.651 27.72 20.393 26.607 20.393 25.401%22 fill=%22transparent%22 stroke-width=%220.65%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 16.832 3.168 C 17.041 3.006 17.305 2.958 17.598 3.065 C 18.096 3.249 18.229 3.782 18.246 4.229 C 18.253 4.418 18.24 4.613 18.216 4.8 C 18.449 4.609 18.663 4.466 18.861 4.37 C 19.205 4.201 19.519 4.159 19.79 4.252 C 20.062 4.345 20.242 4.558 20.354 4.796 C 20.466 5.034 20.519 5.316 20.532 5.591 C 20.555 6.115 20.196 6.542 19.821 6.842 C 19.437 7.15 18.975 7.374 18.665 7.488 L 18.619 7.505 L 18.57 7.502 L 15.556 7.317 L 15.463 7.311 L 15.4 7.243 C 15.109 6.927 14.708 6.392 14.445 5.799 C 14.186 5.215 14.035 4.515 14.344 3.918 C 14.498 3.621 14.722 3.441 15.007 3.434 C 15.266 3.427 15.507 3.568 15.704 3.732 C 15.91 3.902 16.108 4.132 16.283 4.37 C 16.311 4.171 16.358 3.967 16.425 3.783 C 16.51 3.55 16.638 3.318 16.832 3.168 Z%22 fill=%22rgb(229,45,47)%22 stroke-width=%220.72%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 10.98 29.389 C 10.578 28.183 9.895 25.559 10.377 24.706 C 10.859 23.852 10.98 24.01 10.98 24.195%22 fill=%22transparent%22 stroke-width=%220.47%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 12 24.984 C 12.989 26.87 14.717 29.473 13.716 24.799%22 fill=%22transparent%22 stroke-width=%220.65%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 16.359 17.704 C 18.418 17.704 20.022 19.066 20.022 20.672 C 20.022 22.278 18.418 23.639 16.359 23.639 C 14.299 23.639 12.695 22.278 12.695 20.672 C 12.695 19.066 14.3 17.704 16.359 17.704 Z%22 fill=%22rgb(240,140,0)%22 stroke-width=%220.65%22 stroke=%22rgb(0,0,0)%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 18.538 20.996 C 18.291 21.182 17.527 21.534 16.451 21.46%22 fill=%22transparent%22 stroke-width=%220.56%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 5.462 13.531 C 5.462 10.56 7.87 8.152 10.841 8.152 C 13.811 8.152 16.22 10.56 16.22 13.531 C 16.22 16.501 13.811 18.91 10.841 18.91 C 7.87 18.91 5.462 16.501 5.462 13.531 Z%22 fill=%22rgb(255,255,255)%22 stroke-width=%220.65%22 stroke=%22rgb(0,0,0)%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 16.776 14.087 C 16.776 11.424 18.935 9.265 21.599 9.265 C 24.262 9.265 26.421 11.424 26.421 14.087 C 26.421 16.751 24.262 18.91 21.599 18.91 C 18.935 18.91 16.776 16.751 16.776 14.087 Z%22 fill=%22rgb(255,255,255)%22 stroke-width=%220.65%22 stroke=%22rgb(0,0,0)%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 21.877 16.406 C 21.877 15.945 22.23 15.571 22.665 15.571 C 23.1 15.571 23.453 15.945 23.453 16.406 C 23.453 16.867 23.1 17.241 22.665 17.241 C 22.23 17.241 21.877 16.867 21.877 16.406 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 9.542 10.517 C 9.821 9.867 10.563 9.636 11.165 10.238 C 12.149 11.222 9.542 12.047 9.542 10.517 Z%22 fill=%22rgb(0,0,0)%22></path></svg>">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 30 31%22><path d=%22M 17.208 3.848 C 16.652 3.848 14.819 3.848 15.708 3.298 C 16.419 2.858 17.004 3.481 17.208 3.848 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 18.485 2.748 C 18.3 2.656 17.941 2.352 17.985 1.868 C 18.041 1.263 17.763 3.848 17.208 3.848 M 17.208 3.848 C 16.652 3.848 14.819 3.848 15.708 3.298 C 16.419 2.858 17.004 3.481 17.208 3.848 Z%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 2.874 18.722 C 2.893 19.125 2.997 19.932 3.263 19.932 C 3.433 19.932 3.432 19.799 3.38 19.659 C 3.347 19.569 3.418 19.461 3.514 19.476 L 4.319 19.602%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 8.152 11.957 C 8.781 9.153 11.905 3.976 19.363 5.684 C 19.37 5.686 19.377 5.688 19.384 5.691 C 21.054 6.448 24.453 9.006 24.763 13.222%22 fill=%22transparent%22 stroke-width=%220.29%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 5.803 21.461 C 2.817 19.402 5.468 16.632 7.188 15.49 C 7.201 15.481 7.212 15.47 7.22 15.457 C 7.502 14.999 8.065 13.714 8.152 12.067 C 8.241 10.398 9.738 8.409 10.48 7.617 C 10.484 7.613 10.487 7.61 10.491 7.607 C 11.94 6.451 15.757 4.467 19.486 5.741 C 23.213 7.015 24.518 11.356 24.707 13.377 C 24.707 13.384 24.709 13.39 24.711 13.397 L 24.93 14.157 C 25.641 19.173 24.634 22.957 24.041 24.222 C 23.504 25.524 22.008 28.149 20.319 28.237 C 18.208 28.347 13.874 24.992 12.041 23.837 C 10.58 22.917 7.308 21.883 5.836 21.477 C 5.824 21.473 5.813 21.468 5.803 21.461 Z%22 fill=%22rgb(255,255,255)%22></path><path d=%22M 8.112 11.957 C 8.735 9.153 11.825 3.976 19.203 5.684 C 19.21 5.686 19.217 5.688 19.224 5.691 C 20.876 6.449 24.238 9.006 24.545 13.222%22 fill=%22transparent%22 stroke-width=%220.54%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 7.178 15.477 C 5.477 16.612 2.824 19.394 5.788 21.461 C 5.798 21.468 5.81 21.474 5.822 21.477 C 7.278 21.884 10.515 22.917 11.96 23.837 C 13.773 24.992 18.06 28.347 20.149 28.237 C 21.819 28.149 23.3 25.524 23.831 24.222 C 24.417 22.957 25.414 19.173 24.71 14.157%22 fill=%22transparent%22 stroke-width=%220.54%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 25.597 13.167 C 26.023 12.965 26.974 12.848 27.374 13.992%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 6.269 11.682 C 6.195 12.122 6.269 13.068 7.158 13.332%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 17.455 9.382 C 16.736 9.666 17.099 11.483 17.455 10.867 C 17.899 10.097 17.732 9.272 17.455 9.382 Z%22 fill=%22rgb(0,0,0)%22 stroke-width=%220.29%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 14.788 9.051 C 14.07 9.336 14.432 11.152 14.788 10.536 C 15.232 9.766 15.066 8.941 14.788 9.051 Z%22 fill=%22rgb(0,0,0)%22 stroke-width=%220.29%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 21.041 29.276 L 19.652 29.056 C 19.856 29.075 20.241 29.001 20.152 28.561%22 fill=%22transparent%22 stroke-width=%220.5%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 10.93 11.902 C 15.813 10.116 20.699 12.817 22.594 14.437 C 22.63 14.467 22.642 14.515 22.619 14.556 C 21.886 15.873 15.791 16.188 10.93 15.972 C 9.763 15.92 4.763 14.157 10.93 11.902 Z%22 fill=%22rgb(254,232,51)%22 stroke-width=%220.54%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path></svg>">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 34 29%22><path d=%22M 22.534 4.127 C 21.477 3.447 20.52 4.883 20.157 5.719 C 20.146 5.742 20.142 5.767 20.142 5.793 L 20.142 5.83 C 20.142 5.901 20.181 5.966 20.243 5.999 L 21.653 6.745 C 21.723 6.782 21.808 6.773 21.866 6.72 C 22.569 6.077 23.558 4.785 22.534 4.127 Z%22 fill=%22rgb(122,107,100)%22></path><path d=%22M 11.336 3.648 C 12.817 3.574 12.687 5.522 12.417 6.603 C 12.4 6.67 12.347 6.721 12.28 6.738 L 10.988 7.061 C 10.91 7.081 10.828 7.049 10.783 6.981 L 10.108 5.969 C 10.097 5.953 10.089 5.937 10.084 5.919 C 9.867 5.176 9.823 3.724 11.336 3.648 Z%22 fill=%22rgb(122,107,100)%22></path><path d=%22M 22.534 4.127 C 21.477 3.447 20.52 4.883 20.157 5.719 C 20.146 5.742 20.142 5.767 20.142 5.793 L 20.142 5.83 C 20.142 5.901 20.181 5.966 20.243 5.999 L 21.653 6.745 C 21.723 6.782 21.808 6.773 21.866 6.72 C 22.569 6.077 23.558 4.785 22.534 4.127 Z%22 fill=%22transparent%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 11.336 3.648 C 12.817 3.574 12.687 5.522 12.417 6.603 C 12.4 6.67 12.347 6.721 12.28 6.738 L 10.988 7.061 C 10.91 7.081 10.828 7.049 10.783 6.981 L 10.108 5.969 C 10.097 5.953 10.089 5.937 10.084 5.919 C 9.867 5.176 9.823 3.724 11.336 3.648 Z%22 fill=%22transparent%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 11.527 6.902 C 6.168 8.051 3.171 14.079 4.253 19.058 C 4.732 21.259 5.999 22.408 7.125 23.365 C 9.039 24.992 9.996 25.375 17.079 25.47 C 24.161 25.566 27.415 23.843 28.181 17.718 C 28.794 12.817 25.083 8.248 22.726 7.285 C 18.062 5.381 18.227 5.467 11.527 6.902 Z%22 fill=%22rgb(247,206,178)%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 17.844 13.411 L 16.817 12.383 C 16.748 12.314 16.638 12.308 16.562 12.369 L 15.26 13.411%22 fill=%22transparent%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 22.849 9.831 C 23.021 10.952 22.723 12.909 20.237 12.836 C 17.634 12.76 17.366 10.699 17.557 9.678 L 16.026 9.678 C 15.873 11.822 14.495 12.773 13.825 12.836 C 11.206 13.127 10.511 11.081 10.475 9.864 C 10.472 9.76 10.557 9.678 10.661 9.678 L 16.026 9.678 L 17.557 9.678 L 22.665 9.678 C 22.756 9.678 22.835 9.741 22.849 9.831 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 17.557 9.678 L 10.661 9.678 C 10.557 9.678 10.472 9.76 10.475 9.864 C 10.511 11.081 11.206 13.127 13.825 12.836 C 14.495 12.773 15.873 11.822 16.026 9.678 M 17.557 9.678 L 22.665 9.678 C 22.756 9.678 22.835 9.741 22.849 9.831 C 23.021 10.952 22.723 12.909 20.237 12.836 C 17.634 12.76 17.366 10.699 17.557 9.678 Z%22 fill=%22transparent%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 20.237 10.348 L 18.993 11.879%22 fill=%22transparent%22 stroke-width=%220.57%22 stroke=%22rgb(255,255,255)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 13.059 10.539 L 11.719 11.784%22 fill=%22transparent%22 stroke-width=%220.57%22 stroke=%22rgb(255,255,255)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 22.439 15.516 C 22.375 16.601 22.572 18.503 23.874 17.431 C 25.176 16.359 25.182 15.899 25.023 15.804%22 fill=%22transparent%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 9.326 15.229 C 9.996 14.368 11.508 12.932 12.197 14.081 C 12.485 14.559 12.229 16.282 11.815 16.665%22 fill=%22transparent%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 28.147 5.876 L 26.832 7.407 L 25.649 5.806 L 26.832 4.553 Z%22 fill=%22rgb(240,208,121)%22></path><path d=%22M 30.548 3.413 L 29.084 5.171 L 27.694 3.566 L 28.938 1.96 Z%22 fill=%22rgb(240,208,121)%22></path><path d=%22M 28.147 5.876 L 26.832 7.407 L 25.649 5.806 L 26.832 4.553 Z%22 fill=%22transparent%22 stroke-width=%220.77%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 30.548 3.413 L 29.084 5.171 L 27.694 3.566 L 28.938 1.96 Z%22 fill=%22transparent%22 stroke-width=%220.77%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 12.293 27.289 C 11.917 27.289 10.681 26.091 9.878 25.324 C 9.741 25.194 9.855 24.958 10.042 24.985 L 13.798 25.521 C 13.941 25.542 14.01 25.706 13.922 25.82 C 13.456 26.424 12.692 27.289 12.293 27.289 Z%22 fill=%22rgb(0,0,0)%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path><path d=%22M 23.151 26.968 C 23.512 26.968 23.05 25.947 22.729 25.349 C 22.694 25.285 22.626 25.247 22.554 25.25 L 20.558 25.333 C 20.456 25.338 20.375 25.422 20.375 25.525 L 20.375 25.61 C 20.375 25.68 20.413 25.744 20.475 25.778 C 21.274 26.206 22.784 26.968 23.151 26.968 Z%22 fill=%22rgb(0,0,0)%22 stroke-width=%220.96%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-dasharray=%22%22></path></svg>">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 viewBox=%220 0 35 27%22><path d=%22M 8.046 16.341 C 7.86 16.759 8.484 19.002 8.819 20.072 C 9.177 21.325 10.926 24.225 11.755 25.519 C 16.269 25.519 25.949 21.887 30.225 20.072 L 27.752 16.341 C 27.031 15.545 25.65 13.848 25.898 13.431 C 26.145 13.013 27.443 12.858 28.061 12.834 C 28.989 12.461 29.221 13.132 30.534 13.207 C 31.585 13.266 30.612 12.585 29.993 12.237 C 30.225 12.311 30.813 12.416 31.307 12.237 C 31.925 12.013 30.071 11.341 30.225 11.341 C 30.38 11.341 32.312 10.446 30.998 10.67 C 29.684 10.894 29.916 9.998 29.221 9.774 C 28.664 9.595 25.022 10.147 23.27 10.446 L 23.27 9.998 C 23.373 7.461 22.435 2.029 17.86 0.596 C 13.286 -0.836 10.545 0.646 9.746 1.566 C 9.179 1.79 7.768 3.088 6.655 6.491 C 5.542 9.894 6.5 12.187 7.119 12.908 C 4.707 13.386 2.508 15.147 1.709 15.968 C 1.606 15.943 1.369 15.848 1.245 15.669 C 1.091 15.445 0.318 15.445 0.241 15.669 C 0.163 15.893 1.4 16.341 1.245 16.341 C 1.091 16.341 0.163 16.938 0.009 17.236 C -0.146 17.535 1.786 17.087 1.554 17.236 C 1.369 17.355 1.477 17.933 1.554 18.206 L 2.482 17.236 C 2.636 17.908 2.992 19.102 3.177 18.505 C 3.409 17.758 8.278 15.818 8.046 16.341 Z%22 transform=%22translate(3.021 2.218) rotate(18 15.75 12.75)%22 fill=%22rgb(103,67,66)%22 stroke-width=%220.89%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 5.266 2.239 C 3.102 2.537 2.793 0.672 3.102 0 L 2.407 0.522 L 1.711 1.119 C 1.634 1.269 1.464 1.06 1.093 0.821 C 0.722 0.582 0.166 0.746 0.243 0.895 L 1.248 1.492 C 0.81 1.791 -0.112 2.328 0.011 2.388 C 0.166 2.462 1.711 2.089 1.557 2.388 C 1.402 2.686 1.48 2.935 1.557 3.209 L 2.484 2.239 C 2.665 2.935 2.821 4.126 3.102 3.582 C 3.412 2.985 4.597 2.512 5.266 2.239 Z%22 transform=%22translate(2.096 13.066) rotate(20 2.75 1.75)%22 fill=%22rgb(255,220,198)%22></path><path d=%22M 22.118 9.977 C 22.453 10.45 23.416 11.276 23.972 11.395 C 24.668 11.544 24.359 12.962 22.891 12.813 C 21.422 12.664 20.34 11.917 19.722 11.992 M 5.887 13.339 C 5.367 13.864 5.019 15.723 7.155 16.182 C 6.432 16.21 5.157 16.249 4.662 16.704 C 4.211 17.12 4.472 15.947 4.54 15.231 L 3.337 15.825 C 3.358 15.542 3.371 15.281 3.618 15.054 C 3.865 14.826 2.285 14.648 2.166 14.525 C 2.07 14.427 3.12 14.237 3.634 14.107 L 2.894 13.202 C 2.872 13.035 3.451 13.072 3.718 13.423 C 3.985 13.774 4.073 14.028 4.197 13.915 L 5.055 13.592 Z%22 fill=%22transparent%22 stroke-width=%220.6%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 19.645 11.768 C 19.027 9.5 20.778 9.107 21.731 9.231 C 22.195 10.649 23.225 10.873 24.127 11.544 C 24.436 11.47 24.544 12.201 23.741 12.738 C 22.937 13.275 20.495 12.216 19.645 11.768 Z%22 fill=%22rgb(255,219,202)%22></path><path d=%22M 22.891 11.693 L 24.204 11.544%22 fill=%22transparent%22 stroke-width=%220.6%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 22.118 9.977 C 22.453 10.45 23.416 11.276 23.972 11.395 C 24.668 11.544 24.359 12.962 22.89 12.813 C 21.422 12.664 20.34 11.917 19.722 11.992%22 fill=%22transparent%22 stroke-width=%220.6%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path><path d=%22M 15.638 10.549 C 15.638 9.917 16.103 9.404 16.675 9.404 C 17.248 9.404 17.713 9.917 17.713 10.549 C 17.713 11.181 17.248 11.693 16.675 11.693 C 16.103 11.693 15.638 11.181 15.638 10.549 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 15.638 10.549 C 16.11 10.777 16.895 11.063 17.367 11.063 C 17.718 11.063 16.11 12.778 15.638 10.549 Z%22 fill=%22rgb(255,255,255)%22></path><path d=%22M 22.579 9.085 C 22.579 8.611 22.911 8.226 23.32 8.226 C 23.729 8.226 24.061 8.611 24.061 9.085 C 24.061 9.559 23.729 9.943 23.32 9.943 C 22.911 9.943 22.579 9.559 22.579 9.085 Z%22 fill=%22rgb(0,0,0)%22></path><path d=%22M 22.579 9.371 C 22.98 9.499 23.88 9.78 24.049 9.659 C 24.183 9.563 23.114 10.523 22.579 9.371 Z%22 fill=%22rgb(255,255,255)%22></path><path d=%22M 0.309 2.674 C 2.164 0.883 0.876 0.236 0 0.137 C 0.229 0.081 0.799 0.026 1.267 0.001 C 1.547 -0.013 1.815 0.087 1.981 0.306 C 2.19 0.582 2.423 0.918 2.628 0.958 C 3.014 1.032 3.323 0.958 3.709 0.958 L 2.628 1.555 L 3.787 2.301 C 3.416 2.539 2.679 2.549 2.318 2.45 L 3.246 3.121 L 3.323 3.271 C 3.246 3.42 2.363 3.361 1.777 3.047 C 1.082 2.674 0.386 2.823 0 2.972 Z%22 transform=%22translate(30.619 16.004) rotate(10 2 1.75)%22 fill=%22rgb(255,220,198)%22 stroke-width=%220.6%22 stroke=%22rgb(0,0,0)%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-dasharray=%22%22></path></svg>">    
+            </div>
     <div class="footer-right">
       <p class="footer-tag">After delaying this for weeks, I present to you: a footer.</p>
     </div>
@@ -520,6 +983,13 @@
     window.addEventListener('scroll', updateNavbar, { passive: true });
     updateNavbar();
   })();
+
+  // Fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.container section').forEach(s => observer.observe(s));
 </script>
 
 </body>
