@@ -746,9 +746,11 @@
             transform: rotate(-5deg);
         }
         .hero-lottie {
-            opacity: 0.3;
-            transform: scale(3.5);
+            opacity: 0.25;
+            transform: scale(2.2);
             transform-origin: center center;
+            will-change: transform;
+            contain: layout paint;
         }
 
         /* Work grid */
