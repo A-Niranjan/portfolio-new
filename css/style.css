@@ -695,7 +695,7 @@
             padding-top: 200px;
         }
         .hero-top-row {
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             gap: 16px;
             margin-bottom: 32px;
@@ -708,14 +708,14 @@
         .hero-title {
             font-size: clamp(40px, 12vw, 72px);
             line-height: 0.95;
-            margin-bottom: 20px;
+            margin-bottom: 4px;
             text-align: center;
         }
         .hero-desc {
             font-size: 16px;
             max-width: 320px;
             text-align: center;
-            margin-top: 16px;
+            margin-top: 8px;
         }
         .badge-otw {
             position: relative;
