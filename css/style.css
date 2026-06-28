@@ -128,8 +128,8 @@
             background-color: var(--bg-color);
             position: relative;
             z-index: 10;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
+            /* border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px; */
             overflow: hidden;
         }
 
@@ -651,7 +651,7 @@
 
     .mobile-menu-links a {
         font-family: 'Inter', sans-serif;
-        font-size: 48px;
+        font-size: 70px;
         font-weight: 400;
         color: #101010;
         text-decoration: none;
@@ -747,6 +747,8 @@
         }
         .hero-lottie {
             opacity: 0.3;
+            transform: scale(3.5);
+            transform-origin: center center;
         }
 
         /* Work grid */

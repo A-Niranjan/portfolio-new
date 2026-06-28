@@ -147,6 +147,10 @@
     box-shadow: none;
   }
 
+  .photo-main-mobile {
+    display: none;
+  }
+
   .photo-portrait1 {
     width: 170px;
     height: 240px;
@@ -541,6 +545,8 @@
     position: absolute;
     background: #fff;
     padding: 8px 8px 28px;
+    touch-action: none;
+    user-select: none;
     /* box-shadow: 10px 10px 4px rgba(0,0,0,0.25); */
     z-index: 3;
     cursor: grab;
@@ -636,19 +642,65 @@
     .nav-links-left .nav-btn:not(.nav-connect) { display: none; }
     .two-col { grid-template-columns: 1fr; }
     .exp-inner { padding: 0 16px; }
-    .exp-section { padding: 32px 0 48px; }
+    .exp-section { padding: 320px 0 48px; }
     .section-header h1 { font-size: 28px; }
     .section-header p { font-size: 12px; }
     .hero-section { height: auto; min-height: 400px; }
     .hero-photo-stack { width: 300px; height: 300px; }
-    .photo-main { width: 180px; height: 250px; }
-    .photo-portrait1 { width: 80px; height: 100px; right: 20px; }
-    .photo-portrait2 { width: 75px; height: 90px; left: 20px; top: 110px; }
+    .photo-main { display: none; }
+    .photo-main-mobile {
+      display: block;
+      width: 500px;
+      height: 580px;
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      object-position: center top;
+      background: none;
+      padding: 0;
+      box-shadow: none;
+    }
+    .photo-portrait1 { display: none; }
+    .photo-portrait2 { display: none; }
     .photo-landscape { display: none; }
-    .gallery-section { height: 50vh; }
-    .gallery-text { top: 55px; }
+    .gallery-section {
+      height: auto;
+      min-height: 420px;
+      padding: 90px 0 20px;
+      overflow: hidden;
+    }
+    .gallery-text { top: 40px; }
     .gallery-text h2 { font-size: 36px; }
-    .polaroid-float { display: none; }
+    .gallery-section > div:nth-child(3) {
+      width: 160px !important; height: 120px !important;
+      left: -4% !important; bottom: -5% !important;
+      transform: rotate(-10deg) !important;
+      z-index: 2 !important;
+    }
+    .gallery-section > div:nth-child(4) {
+      width: 110px !important; height: 150px !important;
+      left: 18% !important; bottom: 10% !important;
+      transform: rotate(6deg) !important;
+      z-index: 0 !important;
+    }
+    .gallery-section > div:nth-child(5) {
+      width: 170px !important; height: 100px !important;
+      left: 36% !important; bottom: -2% !important;
+      transform: rotate(-3deg) !important;
+      z-index: 2 !important;
+    }
+    .gallery-section > div:nth-child(6) {
+      width: 100px !important; height: 140px !important;
+      left: 70% !important; bottom: 12% !important;
+      transform: rotate(-8deg) !important;
+      z-index: 0 !important;
+    }
+    .gallery-section > div:nth-child(7) {
+      width: 140px !important; height: 110px !important;
+      left: 72% !important; bottom: -5% !important;
+      transform: rotate(-7deg) !important;
+    }
     footer { height: 400px; flex-direction: column; align-items: center; }
   }
 
