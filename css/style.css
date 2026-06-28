@@ -761,11 +761,7 @@
             transform: translateY(0) rotate(0deg);
         }
         .work-card-overlay {
-            opacity: 1;
-            top: auto;
-            bottom: 16px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: none;
         }
 
         /* Side works */
